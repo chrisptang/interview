@@ -1,8 +1,8 @@
-##STAR：“STAR”是SITUATION（背景）、TASK（任务）、ACTION（行动）和RESULT（结果）
+## STAR原则：
+“STAR”是SITUATION（背景）、TASK（任务）、ACTION（行动）和RESULT（结果）。
 
-
-##基础
-###JVM：
+## 基础
+### JVM：
 1. JVM内存模型：JVM内存主要分为以下五个区域：线程栈、Java堆、方法区、程序计数器、Native方法栈；
   3. 线程栈：用于存放（帧栈）程序指令和局部变量表
     4. 每个方法调用对应一个帧栈；
@@ -56,7 +56,7 @@
       18. Metaspace will auto-resize when needed.
   19. http://www.oracle.com/technetwork/java/javase/8-whats-new-2157071.html
 
-###并发和多线程
+### 并发和多线程
 1. ThreadLocal和线程同步解决的问题是什么；
   2. ThreadLocal通过为每个线程提供一个独立的变量副本解决了变量并发访问的冲突问题。对于多线程资源共享的问题，同步机制采用了“以时间换空间”的方式，而ThreadLocal采用了“以空间换时间”的方式。前者仅提供一份变量，让不同的线程排队访问，而后者为每一个线程都提供了一份变量，因此可以同时访问而互不影响。
   3. ThreadLocal并不能替代同步机制，两者面向的问题领域不同。
@@ -111,7 +111,7 @@ http://www.jianshu.com/p/dbbcceb6bc2a
     12. 用 HashEntery 对象的不变性来降低执行读操作的线程在遍历链表期间对加锁的需求。
     13. 通过对同一个 Volatile 变量的写 / 读访问，协调不同线程间读 / 写操作的内存可见性。
 
-###Java语法和基础数据类型
+### Java语法和基础数据类型
 1. final/finally关键字的含义；
 2. abstract类里面可以出现final修饰的方法吗？
 3. HashMap的实现：https://tech.meituan.com/java-hashmap.html
@@ -137,10 +137,10 @@ http://www.jianshu.com/p/dbbcceb6bc2a
       15. 提供自动和隐式的类型转换；
       16. 实现泛型算法，类似于 C++ 中的模板；
 
-###设计模式
+### 设计模式
 单例模型、工厂模式、观察者模式、适配器、委托模式；
 
-###Spring框架
+### Spring框架
 1. Spring AOP的实现原理：https://www.ibm.com/developerworks/cn/java/j-lo-springaopcglib/index.html
   2. Spring AOP 采用运行时生成 AOP 代理类，无需使用特定编译器进行处理。由于 Spring AOP 需要在每次运行时生成 AOP 代理，因此性能略差一些；
 3. 静态代理和动态代理的区别：http://layznet.iteye.com/blog/1182924
@@ -170,7 +170,7 @@ http://www.jianshu.com/p/dbbcceb6bc2a
   5. FactoryBean：Spring 提供了一个 org.springframework.bean.factory.FactoryBean 的工厂类接口，用户可以通过实现该接口定制实例化某个Bean的逻辑；
 
 
-###算法和数据结构
+### 算法和数据结构
 1. 平衡二叉树：又称 AVL 树。它或者是一棵空树,或者是具有如下性质的二叉树：
   1. 它的左子树和右子树都是平衡二叉树，
   1. 左子树和右子树的深度之差的绝对值不超过1。
@@ -192,7 +192,7 @@ http://www.jianshu.com/p/dbbcceb6bc2a
     9. 堆排序（Heapsort）— O(nlogn)
     9. 快速排序（Quicksort）— O(nlogn) 期望时间, O(n²) 最坏情况; 对于大的、乱数串行一般相信是最快的已知排序
 
-###DataBase
+### DataBase
 1. 数据库的索引文件数据结构：https://www.jianshu.com/p/1775b4ff123a
   1. InnoDB的数据文件本身就是索引文件。从上文知道，MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。而在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引。
   2. InnoDB的辅助索引data域存储相应记录主键的值而不是地址。换句话说，InnoDB的所有辅助索引都引用主键作为data域。
@@ -234,7 +234,7 @@ http://www.jianshu.com/p/dbbcceb6bc2a
   26. 这取决于应用场景。对于一般的互联网应用，并发压力大但不要求支持事务，可以考虑分布式缓存。对于银行这样严格要求强一致性的应用，对于写入延迟一般没什么要求，数据不出错就行，可以适用完全同步的模式。
   27. 主机与备机之间的物理延迟是不可控的，也是无法避免的。但是如果仅仅需要满足这种强一致性，是相对简单的事：只需要在主机写入时，确认更新已经同步到备机之后，再返回写操作成功即可。这会极大地损害性能；
 
-###网络
+### 网络
 1. 网络分层；
 2. HTTP response header;
 3. HTTP status code: 2xx, 3xx, 4xx, 5xx;
@@ -256,7 +256,7 @@ http://www.jianshu.com/p/dbbcceb6bc2a
   1. read()/write() 数据交换
   1. close() 关闭连接
 
-###前端
+### 前端
 1. 对Angular/React/Vue的见解;
 2. React/Angular的lifecycle
 2. 封装、继承、多态使用JS实现；
@@ -269,17 +269,17 @@ http://www.jianshu.com/p/dbbcceb6bc2a
 8. apply,call,bind,
 6. JS有哪些数据类型，这些数据类型中，哪些是引用类型；
 
-###编程题
+### 编程题
 1. 给定一个整形数组，找出所有相加等于N的组合；
 2. 超大整数相加
 
-###缓存Tair
+### 缓存Tair
 1. ldb：level DB，writen by Google;
 2. mdb：memcache;
 3. rdb：redis;
 4. http://www.jianshu.com/p/c1b9ec30b994
 
-##流程参考
+## 流程参考
 1. 做过最满意的项目是什么？
 2. 项目
   2. 为什么要做这件事情？
@@ -293,7 +293,7 @@ http://www.jianshu.com/p/dbbcceb6bc2a
 6. 后续想做什么？3 年后你希望自己是什么水平？
 7. 在之前做过的项目中，有没有什么功能或改进点是由你提出来的？是否有参与和改进其它开源项目
 
-##CAP定理
+## CAP定理
 在理论计算机科学中，CAP定理（CAP theorem），又被称作布鲁尔定理（Brewer's theorem），它指出对于一个分布式计算系统来说，不可能同时满足以下三点：[1][2]
 
 一致性（Consistence） （等同于所有节点访问同一份最新的数据副本）
